@@ -2,15 +2,18 @@ import React from "react";
 import "./";
 import Head from "./components/Head";
 import Screen from "./components/Screen";
+import FontType from "./components/FontType";
 
 function App() {
   return (
-    <body className="bg-slate-600">
+    <div>
       <Head />
-      <Screen />
-    </body>
+      <main className="p-5">
+        <Screen />
+        <FontType />
+      </main>
+    </div>
   );
 }
-// test
 
 export default App;
