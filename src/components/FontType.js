@@ -2,6 +2,7 @@ import { useState } from "react";
 import { Listbox } from "@headlessui/react";
 import { ChevronUpDownIcon } from "@heroicons/react/20/solid";
 import FontSize from "./FontSize";
+import FontColor from "./FontColor";
 const font = [
   { name: "Nanum Gothic" },
   { name: "Gulim" },
@@ -13,8 +14,8 @@ const FontType = () => {
   const [selected, setSelected] = useState(font[0]);
 
   return (
-    <div className="flex flex-row mt-12 pl-10 w-full">
-      <label className="flex-none mr-3">원본 대사</label>
+    <div className="flex flex-row mt-12 w-64">
+      <label className="flex-none mr-3 pt-2">원본 대사</label>
       <Listbox value={selected} onChange={setSelected}>
         <div className="flex-none mt-1">
           <Listbox.Button
@@ -60,6 +61,7 @@ const FontType = () => {
         </div>
       </Listbox>
       <FontSize />
+      <FontColor />
     </div>
   );
 };

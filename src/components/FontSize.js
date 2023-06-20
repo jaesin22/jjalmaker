@@ -16,8 +16,8 @@ const FontSize = () => {
   const [selected, setSelected] = useState(size[3]);
 
   return (
-    <div className="flex ml-20 w-full">
-      <label className="flex-none mr-3">폰트 크기</label>
+    <div className="flex ml-20">
+      <label className="flex-none mr-3 pt-2">폰트 크기</label>
       <Listbox value={selected} onChange={setSelected}>
         <div className="mt-1">
           <Listbox.Button

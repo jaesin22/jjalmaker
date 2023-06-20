@@ -1,32 +1,47 @@
-import React, { useState, useEffect, useCallback } from "react";
-import { ChromePicker } from "react-color";
+import React, { useState } from "react";
+import { SketchPicker } from "react-color";
+import { Menu, Transition } from "@headlessui/react";
+import { ChevronDownIcon } from "@heroicons/react/20/solid";
 
 const FontColor = () => {
+  const [showPicker, setShowPicker] = useState(false);
   const [color, setColor] = useState("");
 
-  useEffect(
-    (label) => {
-      if (!label.color) {
-        // 받아온 레이블 컬러가 없으면
-        setColor(""); // 걍 빈칸
-      }
-      setColor(label.color); // 데이터가 있으면 컬러로 세팅
-    },
-    [label]
-  );
+  const handleButtonClick = () => {
+    setShowPicker(!showPicker);
+  };
 
-  const handleColorChange = useCallback(
-    // 온체인지 이벤트를 담당할 함수다.
-    (color) => {
-      // 바뀌는 컬러값을 매개변수로 받아서
-      setColor(color); // setColor 안에 넣어줘서 color 를 변경해줄거다.
-    },
-    [color]
-  ); // 단 컬러 데이터가 바뀔때마다 이 함수는 갱신된다.
+  const handleChangeComplete = (color) => {
+    setColor(color.hex);
+  };
 
   return (
-    <div>
-      <ChromePicker onClick={handleColorChange} />
+    <div className="flex ml-20">
+      <label className="flex-none mr-3">폰트 색상</label>
+      <Menu as="div" className="relative inline-block text-left">
+        <Menu.Button
+          className="inline-flex w-full justify-center gap-x-1.5 rounded-md
+           bg-white px-3 py-2 text-sm font-semibold
+           text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 hover:bg-gray-50"
+          onClick={handleButtonClick}
+        >
+          <ChevronDownIcon
+            className="-mr-1 h-5 w-5 text-gray-400"
+            aria-hidden="true"
+          />
+        </Menu.Button>
+        <Transition
+          show={showPicker}
+          enter="transition ease-out duration-100"
+          enterFrom="transform opacity-0 scale-95"
+          enterTo="transform opacity-100 scale-100"
+          leave="transition ease-in duration-75"
+          leaveFrom="transform opacity-100 scale-100"
+          leaveTo="transform opacity-0 scale-95"
+        >
+          <SketchPicker color={color} onChange={handleChangeComplete} />
+        </Transition>
+      </Menu>
     </div>
   );
 };

@@ -3,16 +3,16 @@ import "./";
 import Head from "./components/Head";
 import Screen from "./components/Screen";
 import FontType from "./components/FontType";
-import FontColor from "./components/FontColor";
+import Text from "./components/Text";
 
 function App() {
   return (
     <div>
       <Head />
-      <main className="p-5">
+      <main className="p-5 pl-16">
         <Screen />
+        <Text />
         <FontType />
-        <FontColor />
       </main>
     </div>
   );
