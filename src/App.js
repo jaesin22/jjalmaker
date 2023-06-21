@@ -13,6 +13,7 @@ function App() {
   const [color, setColor] = useState("#000000");
   const [selectedFontSize, setSelectedFontSize] = useState(30);
   const [onFontWeight, setonFontWeight] = useState(30);
+  const [onFontBorder, setonFontBorder] = useState("black");
 
   const handleTextChange = (newText) => {
     setText(newText);
@@ -30,6 +31,10 @@ function App() {
     setonFontWeight(onWeight);
   };
 
+  const handleFontBorderChange = (onBorder) => {
+    setonFontBorder(onBorder);
+  };
+
   return (
     <div>
       <Head />
@@ -39,6 +44,7 @@ function App() {
           color={color}
           size={selectedFontSize}
           thick={onFontWeight}
+          border={onFontBorder}
         />
         <Text onTextChange={handleTextChange} />
         <div className="flex w-full">
@@ -48,7 +54,7 @@ function App() {
         </div>
         <div className="flex w-full">
           <FontThickness onFontWeightChange={handleFontWeightChange} />
-          <FontBorder />
+          <FontBorder onFontBorderChange={handleFontBorderChange} />
         </div>
       </main>
     </div>
