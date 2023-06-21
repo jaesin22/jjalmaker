@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { SketchPicker } from "react-color";
 import { Menu, Transition } from "@headlessui/react";
 import { ChevronDownIcon } from "@heroicons/react/20/solid";
+import Preview from "../Func/Preview";
 
 const FontColor = () => {
   const [showPicker, setShowPicker] = useState(false);
@@ -16,7 +17,7 @@ const FontColor = () => {
   };
 
   return (
-    <div className="flex ml-20">
+    <div className="flex flex-row mt-12 w-96">
       <label className="flex-none mr-3">폰트 색상</label>
       <Menu as="div" className="relative inline-block text-left">
         <Menu.Button
@@ -39,7 +40,12 @@ const FontColor = () => {
           leaveFrom="transform opacity-100 scale-100"
           leaveTo="transform opacity-0 scale-95"
         >
-          <SketchPicker color={color} onChange={handleChangeComplete} />
+          <SketchPicker
+            color={color}
+            onChange={handleChangeComplete}
+            className="absolute"
+          />
+          <Preview setColor={color} />
         </Transition>
       </Menu>
     </div>

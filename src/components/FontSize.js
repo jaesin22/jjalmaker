@@ -3,7 +3,6 @@ import { Listbox } from "@headlessui/react";
 import { ChevronUpDownIcon } from "@heroicons/react/20/solid";
 
 const size = [
-  { name: 15 },
   { name: 20 },
   { name: 25 },
   { name: 30 },
@@ -13,15 +12,19 @@ const size = [
 ];
 
 const FontSize = () => {
-  const [selected, setSelected] = useState(size[3]);
+  const [selected, setSelected] = useState(size[2]);
 
   return (
-    <div className="flex ml-20">
-      <label className="flex-none mr-3 pt-2">폰트 크기</label>
-      <Listbox value={selected} onChange={setSelected}>
+    <div className="flex flex-row mt-12 w-96">
+      <label className="flex-none ml-5 pt-2">폰트 사이즈</label>
+      <Listbox
+        value={selected}
+        onChange={setSelected}
+        className="absolute ml-32"
+      >
         <div className="mt-1">
           <Listbox.Button
-            className="relative w-full cursor-default rounded-lg 
+            className="cursor-default rounded-lg w-64 2xl:w-96
            bg-[#222933] text-white py-2 pl-3 pr-10 text-left shadow-md focus:outline-none sm:text-sm"
           >
             <span className="block truncate">{selected.name}</span>
@@ -33,14 +36,14 @@ const FontSize = () => {
             </span>
           </Listbox.Button>
           <Listbox.Options
-            className="max-h-60 w-full overflow-auto rounded-lg
+            className="max-h-60 w-64 overflow-auto rounded-lg
              bg-[#222933] py-1 text-base shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none sm:text-sm"
           >
             {size.map((person, personIdx) => (
               <Listbox.Option
                 key={personIdx}
                 className={({ active }) =>
-                  `relative cursor-default select-none py-2 pl-2 pr-4 text-left text-white ${
+                  `relative cursor-default select-none py-2 pl-2 pr-4 text-left z-20 text-white ${
                     active ? "bg-[#313846] text-white" : "bg-[#222933]"
                   }`
                 }
