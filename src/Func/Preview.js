@@ -1,7 +1,7 @@
 import React, { useRef, useEffect } from "react";
 
-const Preview = ({ text, color, size, thick }) => {
-  console.log(text, color, size, thick);
+const Preview = ({ text, color, size, thick, border }) => {
+  console.log(text, color, size, thick, border);
   const canvasRef = useRef(null);
 
   useEffect(() => {
@@ -29,14 +29,14 @@ const Preview = ({ text, color, size, thick }) => {
     ctx.font = `${thick} ${size}px Arial`;
     ctx.fillStyle = color;
     ctx.textAlign = "center";
-    ctx.strokeStyle = "none";
+    ctx.strokeStyle = border;
 
     // 글자를 캔버스 가운데에 위치시킴
     const canvasCenterX = canvas.width / 2;
     const canvasCenterY = canvas.height / 2;
     ctx.fillText(text, canvasCenterX, canvasCenterY);
     ctx.strokeText(text, canvasCenterX, canvasCenterY);
-  }, [text, color, size, thick]);
+  }, [text, color, size, thick, border]);
 
   // 컴포넌트의 나머지 로직과 렌더링을 작성하세요.
 

@@ -2,17 +2,27 @@ import { useState } from "react";
 import { Listbox } from "@headlessui/react";
 import { ChevronUpDownIcon } from "@heroicons/react/20/solid";
 
-const font = [{ name: "없음" }, { name: "검정색" }, { name: "흰색" }];
+const font = [
+  { name: "없음", fontBorder: null },
+  { name: "검정색", fontBorder: "black" },
+  { name: "흰색", fontBorder: "white" },
+];
 
-const FontBorder = () => {
+const FontBorder = ({ onFontBorderChange }) => {
   const [selected, setSelected] = useState(font[1]);
+
+  const FontBorderSelect = (border) => {
+    const { fontBorder } = border;
+    setSelected(border);
+    onFontBorderChange(fontBorder);
+  };
 
   return (
     <div className="flex flex-row mt-12 w-96">
       <label className="ml-5 pt-2">폰트 테두리</label>
       <Listbox
         value={selected}
-        onChange={setSelected}
+        onChange={FontBorderSelect}
         className="absolute ml-32"
       >
         <div className="mt-1">
