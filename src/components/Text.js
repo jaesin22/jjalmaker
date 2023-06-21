@@ -1,12 +1,13 @@
 import React, { useState } from "react";
-import Preview from "../Func/Preview";
 
-const Text = () => {
-  const [text, setText] = useState("");
+const Text = ({ onTextChange }) => {
+  const [text, setText] = useState(" ");
 
   const onChange = (e) => {
     setText(e.target.value);
+    onTextChange(e.target.value);
   };
+
   return (
     <div className="flex mt-10 ml-3">
       <label className="flex-none ml-1 pt-5">텍스트</label>
@@ -17,11 +18,8 @@ const Text = () => {
         onChange={onChange}
         value={text}
       ></textarea>
-      <Preview setText={text} />
     </div>
   );
 };
 
 export default Text;
-
-// 3D Scanner, AR ZOne, AR Emoji, DevMaint, Voice Recorder

@@ -11,15 +11,20 @@ const size = [
   { name: 45 },
 ];
 
-const FontSize = () => {
+const FontSize = ({ onSize }) => {
   const [selected, setSelected] = useState(size[2]);
+
+  const handleSelection = (selected) => {
+    setSelected(selected);
+    onSize(selected.name); // 선택된 값을 부모 컴포넌트로 전달
+  };
 
   return (
     <div className="flex flex-row mt-12 w-96">
       <label className="flex-none ml-5 pt-2">폰트 사이즈</label>
       <Listbox
         value={selected}
-        onChange={setSelected}
+        onChange={handleSelection}
         className="absolute ml-32"
       >
         <div className="mt-1">

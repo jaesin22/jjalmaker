@@ -2,17 +2,27 @@ import { useState } from "react";
 import { Listbox } from "@headlessui/react";
 import { ChevronUpDownIcon } from "@heroicons/react/20/solid";
 
-const font = [{ name: "얇게" }, { name: "보통" }, { name: "두껍게" }];
+const font = [
+  { name: "얇게", fontWeight: "lighter" },
+  { name: "보통", fontWeight: "normal" },
+  { name: "두껍게", fontWeight: "bold" },
+];
 
-const FontThickness = () => {
+const FontThickness = ({ onFontWeightChange }) => {
   const [selected, setSelected] = useState(font[1]);
+
+  const FontWeightSelect = (item) => {
+    const { fontWeight } = item;
+    setSelected(item);
+    onFontWeightChange(fontWeight);
+  };
 
   return (
     <div className="flex flex-row mt-12 w-96">
       <label className="flex-none mr-3 pt-2">폰트 두께</label>
       <Listbox
         value={selected}
-        onChange={setSelected}
+        onChange={FontWeightSelect}
         className="absolute ml-32"
       >
         <div className="mt-1">
