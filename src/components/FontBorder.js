@@ -3,7 +3,7 @@ import { Listbox } from "@headlessui/react";
 import { ChevronUpDownIcon } from "@heroicons/react/20/solid";
 
 const font = [
-  { name: "없음", fontBorder: null },
+  { name: "없음", fontBorder: "transparent" },
   { name: "검정색", fontBorder: "black" },
   { name: "흰색", fontBorder: "white" },
 ];

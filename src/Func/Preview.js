@@ -41,7 +41,7 @@ const Preview = ({ text, color, size, thick, border }) => {
   // 컴포넌트의 나머지 로직과 렌더링을 작성하세요.
 
   return (
-    <div className="flex items-center text-center justify-center">
+    <div className="flex justify-center">
       <canvas ref={canvasRef} width={1024} height={768} />
     </div>
   );
