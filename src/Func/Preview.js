@@ -50,7 +50,7 @@ const Preview = ({ text, color, size, thick, border, fontFamiliy }) => {
 
   return (
     <div className="flex justify-center">
-      <canvas ref={canvasRef} width={1024} height={768} />
+      <canvas ref={canvasRef} width={1040} height={469} />
     </div>
   );
 };
