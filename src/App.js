@@ -14,6 +14,7 @@ function App() {
   const [selectedFontSize, setSelectedFontSize] = useState(30);
   const [onFontWeight, setonFontWeight] = useState(30);
   const [onFontBorder, setonFontBorder] = useState("black");
+  const [onFontType, setonFontType] = useState("SANJUGotgam");
 
   const handleTextChange = (newText) => {
     setText(newText);
@@ -35,6 +36,10 @@ function App() {
     setonFontBorder(onBorder);
   };
 
+  const handleFontTypeChange = (onType) => {
+    setonFontType(onType);
+  };
+
   return (
     <div>
       <Head />
@@ -45,10 +50,11 @@ function App() {
           size={selectedFontSize}
           thick={onFontWeight}
           border={onFontBorder}
+          fontFamiliy={onFontType}
         />
         <Text onTextChange={handleTextChange} />
         <div className="flex w-full">
-          <FontType />
+          <FontType onFontTypeChange={handleFontTypeChange} />
           <FontSize onSize={handleFontSizeChange} />
           <FontColor onColorChange={handleColorChange} />
         </div>

@@ -1,8 +1,8 @@
 import React, { useRef, useEffect } from "react";
 import "../styles/App.css";
 
-const Preview = ({ text, color, size, thick, border }) => {
-  console.log(text, color, size, thick, border);
+const Preview = ({ text, color, size, thick, border, fontFamiliy }) => {
+  console.log(text, color, size, thick, border, fontFamiliy);
   const canvasRef = useRef(null);
 
   useEffect(() => {
@@ -27,7 +27,7 @@ const Preview = ({ text, color, size, thick, border }) => {
     ctx.fillRect(backgroundX, backgroundY, backgroundWidth, backgroundHeight);
 
     // 글꼴 및 글자색 설정
-    ctx.font = `${thick} ${size}px Arial`;
+    ctx.font = `${thick} ${size}px ${fontFamiliy}`;
     //ctx.font = `${thick} ${size}px ${"SANJUGotgam"}`;
 
     ctx.fillStyle = color;
@@ -39,7 +39,7 @@ const Preview = ({ text, color, size, thick, border }) => {
     const canvasCenterY = canvas.height / 2;
     ctx.fillText(text, canvasCenterX, canvasCenterY);
     ctx.strokeText(text, canvasCenterX, canvasCenterY);
-  }, [text, color, size, thick, border]);
+  }, [text, color, size, thick, border, fontFamiliy]);
 
   // 컴포넌트의 나머지 로직과 렌더링을 작성하세요.
 
