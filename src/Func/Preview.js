@@ -1,4 +1,5 @@
 import React, { useRef, useEffect } from "react";
+import "../styles/App.css";
 
 const Preview = ({ text, color, size, thick, border }) => {
   console.log(text, color, size, thick, border);
@@ -27,6 +28,8 @@ const Preview = ({ text, color, size, thick, border }) => {
 
     // 글꼴 및 글자색 설정
     ctx.font = `${thick} ${size}px Arial`;
+    //ctx.font = `${thick} ${size}px ${"SANJUGotgam"}`;
+
     ctx.fillStyle = color;
     ctx.textAlign = "center";
     ctx.strokeStyle = border;
