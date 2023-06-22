@@ -5,7 +5,7 @@ function Head() {
     <div className="lg:flex lg:items-center lg:justify-between text-center bg-slate-900 mt-12">
       <div className="min-w-0 flex-1">
         <h2 className="text-2xl font-bold leading-7 text-white sm:truncate sm:text-3xl sm:tracking-tight">
-          짤 생성기
+          배너 생성기
         </h2>
       </div>
     </div>
