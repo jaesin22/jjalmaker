@@ -2,8 +2,8 @@ import React, { useState } from "react";
 import { FontColorsOutlined } from "@ant-design/icons";
 import { ChromePicker } from "react-color";
 
-const FontColor = ({ onColorChange }) => {
-  const [color, setColor] = useState("#ff0000");
+const BackgroundColor = ({ onBgColorChange }) => {
+  const [bgcolor, setBgColor] = useState("#E9B1BE");
   const [showColorPicker, setShowColorPicker] = useState(false);
 
   const handleColorIconClick = () => {
@@ -11,8 +11,8 @@ const FontColor = ({ onColorChange }) => {
   };
 
   const handleColorChange = (e) => {
-    setColor(e.hex);
-    onColorChange(e.hex);
+    setBgColor(e.hex);
+    onBgColorChange(e.hex);
   };
 
   const handleClose = () => {
@@ -20,17 +20,18 @@ const FontColor = ({ onColorChange }) => {
   };
 
   return (
-    <>
+    <div>
       <FontColorsOutlined
         onClick={handleColorIconClick}
-        className="flex items-center justify-center cursor-pointer "
         style={{
-          color: color,
-          backgroundColor: "#ffffff",
+          backgroundColor: bgcolor,
           fontSize: "30px",
-          border: "1px solid #000000",
+          border: "1px solid #ffffff",
           borderRadius: "3px",
+          color: "#FFFFFF",
+          width: "30px,",
         }}
+        className="flex items-center justify-center cursor-pointer "
       />
       {showColorPicker && (
         <div className="absolute">
@@ -44,11 +45,11 @@ const FontColor = ({ onColorChange }) => {
             }}
             onClick={handleClose}
           />
-          <ChromePicker color={color} onChange={handleColorChange} />
+          <ChromePicker color={bgcolor} onChange={handleColorChange} />
         </div>
       )}
-    </>
+    </div>
   );
 };
 
-export default FontColor;
+export default BackgroundColor;

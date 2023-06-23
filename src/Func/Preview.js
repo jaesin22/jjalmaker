@@ -1,8 +1,15 @@
 import React, { useRef, useEffect } from "react";
 import "../styles/App.css";
 
-const Preview = ({ text, color, size, thick, border, fontFamiliy }) => {
-  console.log(text, color, size, thick, border, fontFamiliy);
+const Preview = ({
+  text,
+  color,
+  size,
+  thick,
+  border,
+  fontFamiliy,
+  bgColor,
+}) => {
   const canvasRef = useRef(null);
   const lineHeight = 40;
 
@@ -25,7 +32,7 @@ const Preview = ({ text, color, size, thick, border, fontFamiliy }) => {
     const backgroundY = (canvasHeight - backgroundHeight) / 2; // 배경의 y 좌표 계산
 
     // 배경색 설정
-    ctx.fillStyle = "#BE2D2D";
+    ctx.fillStyle = bgColor;
     ctx.fillRect(backgroundX, backgroundY, backgroundWidth, backgroundHeight);
 
     // 글꼴 및 글자색 설정
@@ -46,7 +53,7 @@ const Preview = ({ text, color, size, thick, border, fontFamiliy }) => {
       canvasCenterY += lineHeight;
     }
     //ctx.strokeText(text, canvasCenterX, canvasCenterY);
-  }, [text, color, size, thick, border, fontFamiliy]);
+  }, [text, color, size, thick, border, fontFamiliy, bgColor]);
 
   return (
     <div className="flex justify-center">

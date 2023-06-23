@@ -7,14 +7,16 @@ import FontColor from "./components/FontColor";
 import FontThickness from "./components/FontThickness";
 import FontBorder from "./components/FontBorder";
 import Preview from "./Func/Preview";
+import BackgroundColor from "./components/BackgroundColor";
 
 function App() {
   const [text, setText] = useState(" ");
   const [color, setColor] = useState("#FFFFFF");
-  const [selectedFontSize, setSelectedFontSize] = useState(30);
+  const [selectedFontSize, setSelectedFontSize] = useState(40);
   const [onFontWeight, setonFontWeight] = useState(30);
-  const [onFontBorder, setonFontBorder] = useState("black");
+  const [onFontBorder, setonFontBorder] = useState("transparent");
   const [onFontType, setonFontType] = useState("SANJUGotgam");
+  const [bgcolor, setBgColor] = useState("#E9B1BE");
 
   const handleTextChange = (newText) => {
     setText(newText);
@@ -22,6 +24,10 @@ function App() {
 
   const handleColorChange = (selectedColor) => {
     setColor(selectedColor);
+  };
+
+  const handleBgColorChange = (selectBgColor) => {
+    setBgColor(selectBgColor);
   };
 
   const handleFontSizeChange = (onSize) => {
@@ -41,9 +47,14 @@ function App() {
   };
 
   return (
-    <div>
+    <div className="bg-[#222933]">
       <Head />
       <main className="p-5 pl-16">
+        <div className="flex flex-row justify-center relative">
+          <FontColor onColorChange={handleColorChange} />
+          <FontType onFontTypeChange={handleFontTypeChange} />
+          <BackgroundColor onBgColorChange={handleBgColorChange} />
+        </div>
         <Preview
           text={text}
           color={color}
@@ -51,12 +62,11 @@ function App() {
           thick={onFontWeight}
           border={onFontBorder}
           fontFamiliy={onFontType}
+          bgColor={bgcolor}
         />
         <Text onTextChange={handleTextChange} />
         <div className="flex w-full">
-          <FontType onFontTypeChange={handleFontTypeChange} />
           <FontSize onSize={handleFontSizeChange} />
-          <FontColor onColorChange={handleColorChange} />
         </div>
         <div className="flex w-full">
           <FontThickness onFontWeightChange={handleFontWeightChange} />

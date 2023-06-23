@@ -9,7 +9,7 @@ const font = [
 ];
 
 const FontBorder = ({ onFontBorderChange }) => {
-  const [selected, setSelected] = useState(font[1]);
+  const [selected, setSelected] = useState(font[0]);
 
   const FontBorderSelect = (border) => {
     const { fontBorder } = border;
