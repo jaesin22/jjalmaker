@@ -38,13 +38,24 @@ const FontType = ({ onFontTypeChange }) => {
   );
 
   return (
-    <div className="flex">
-      <Dropdown overlay={menu}>
-        <a className="ant-dropdown-link" onClick={(e) => e.preventDefault()}>
-          <span style={{ fontFamily: selected.fontFamily, color: "#ffffff" }}>
+    <div className="flex mx-1">
+      <Dropdown overlay={menu} className="bg-white w-44">
+        <a
+          href="font dropdown"
+          className="ant-dropdown-link text-black border-solid border-1 border-white rounded-sm"
+          onClick={(e) => e.preventDefault()}
+        >
+          <span
+            style={{
+              fontFamily: selected.fontFamily,
+              color: "black",
+              fontSize: "14px",
+            }}
+            className="ml-2 mt-5"
+          >
             {selected.name}
           </span>
-          <DownOutlined style={{ color: "#e9ecef" }} />
+          <DownOutlined style={{ color: "#e9ecef" }} className="h-6 w-10" />
         </a>
       </Dropdown>
     </div>
@@ -52,3 +63,4 @@ const FontType = ({ onFontTypeChange }) => {
 };
 
 export default FontType;
+// 1px solid #d9d9d9

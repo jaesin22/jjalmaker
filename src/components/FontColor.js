@@ -23,7 +23,7 @@ const FontColor = ({ onColorChange }) => {
     <>
       <FontColorsOutlined
         onClick={handleColorIconClick}
-        className="flex items-center justify-center cursor-pointer "
+        className="flex items-center justify-center cursor-pointer mx-1"
         style={{
           color: color,
           backgroundColor: "#ffffff",
@@ -33,7 +33,7 @@ const FontColor = ({ onColorChange }) => {
         }}
       />
       {showColorPicker && (
-        <div className="absolute">
+        <div className="absolute mx-1">
           <div
             style={{
               position: "fixed",

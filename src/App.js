@@ -7,6 +7,7 @@ import FontColor from "./components/FontColor";
 import FontThickness from "./components/FontThickness";
 import FontBorder from "./components/FontBorder";
 import Preview from "./Func/Preview";
+import { Space } from "antd";
 import BackgroundColor from "./components/BackgroundColor";
 
 function App() {
@@ -50,11 +51,12 @@ function App() {
     <div className="bg-[#222933]">
       <Head />
       <main className="p-5 pl-16">
-        <div className="flex flex-row justify-center relative">
+        <Space className="flex justify-center relative">
           <FontColor onColorChange={handleColorChange} />
           <FontType onFontTypeChange={handleFontTypeChange} />
+          <FontSize onSize={handleFontSizeChange} />
           <BackgroundColor onBgColorChange={handleBgColorChange} />
-        </div>
+        </Space>
         <Preview
           text={text}
           color={color}
@@ -65,9 +67,7 @@ function App() {
           bgColor={bgcolor}
         />
         <Text onTextChange={handleTextChange} />
-        <div className="flex w-full">
-          <FontSize onSize={handleFontSizeChange} />
-        </div>
+        <div className="flex w-full"></div>
         <div className="flex w-full">
           <FontThickness onFontWeightChange={handleFontWeightChange} />
           <FontBorder onFontBorderChange={handleFontBorderChange} />
