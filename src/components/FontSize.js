@@ -30,17 +30,26 @@ const FontSize = ({ onSize }) => {
   );
 
   return (
-    <div className="flex mx-1">
-      <Dropdown overlay={menu}>
+    <div className="flex w-20 bg-white border-solid border-1 border-white rounded-sm">
+      <Dropdown
+        overlay={menu}
+        className="ant-dropdown-link text-black border-solid border-1 border-white rounded-sm"
+      >
         <a
           href="font size dropdown"
-          className="ant-dropdown-link"
+          className="ant-dropdown-link text-black bolder font-bold"
           onClick={(e) => e.preventDefault()}
         >
-          <span style={{ fontFamily: selected.fontFamily, color: "#ffffff" }}>
+          <span
+            style={{
+              color: "black",
+              fontSize: "16px",
+            }}
+            className="ml-2"
+          >
             {selected.name}
           </span>
-          <DownOutlined style={{ color: "#e9ecef" }} />
+          <DownOutlined style={{ color: "#e9ecef" }} className="h-6 ml-7" />
         </a>
       </Dropdown>
     </div>

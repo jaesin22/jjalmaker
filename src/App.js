@@ -4,14 +4,14 @@ import FontType from "./components/FontType";
 import Text from "./components/Text";
 import FontSize from "./components/FontSize";
 import FontColor from "./components/FontColor";
-import FontThickness from "./components/FontThickness";
-import FontBorder from "./components/FontBorder";
+// import FontThickness from "./components/FontThickness";
+// import FontBorder from "./components/FontBorder";
 import Preview from "./Func/Preview";
-import { Space } from "antd";
+import { Space, Divider } from "antd";
 import BackgroundColor from "./components/BackgroundColor";
 
 function App() {
-  const [text, setText] = useState(" ");
+  const [text, setText] = useState("Sample Text");
   const [color, setColor] = useState("#FFFFFF");
   const [selectedFontSize, setSelectedFontSize] = useState(40);
   const [onFontWeight, setonFontWeight] = useState(30);
@@ -35,26 +35,27 @@ function App() {
     setSelectedFontSize(onSize);
   };
 
-  const handleFontWeightChange = (onWeight) => {
-    setonFontWeight(onWeight);
-  };
+  // const handleFontWeightChange = (onWeight) => {
+  //   setonFontWeight(onWeight);
+  // };
 
-  const handleFontBorderChange = (onBorder) => {
-    setonFontBorder(onBorder);
-  };
+  // const handleFontBorderChange = (onBorder) => {
+  //   setonFontBorder(onBorder);
+  // };
 
   const handleFontTypeChange = (onType) => {
     setonFontType(onType);
   };
 
   return (
-    <div className="bg-[#222933]">
+    <div className="bg-[#222933] h-full">
       <Head />
-      <main className="p-5 pl-16">
-        <Space className="flex justify-center relative">
+      <main className="p-5 pl-16 h-full flex flex-col items-center ">
+        <Space className="justify-center items-center">
           <FontColor onColorChange={handleColorChange} />
           <FontType onFontTypeChange={handleFontTypeChange} />
           <FontSize onSize={handleFontSizeChange} />
+          <Divider type="vertical" className="bg-white" />
           <BackgroundColor onBgColorChange={handleBgColorChange} />
         </Space>
         <Preview
@@ -67,11 +68,10 @@ function App() {
           bgColor={bgcolor}
         />
         <Text onTextChange={handleTextChange} />
-        <div className="flex w-full"></div>
-        <div className="flex w-full">
+        {/* <div className="flex w-full">
           <FontThickness onFontWeightChange={handleFontWeightChange} />
           <FontBorder onFontBorderChange={handleFontBorderChange} />
-        </div>
+        </div> */}
       </main>
     </div>
   );

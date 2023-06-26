@@ -26,8 +26,8 @@ const Preview = ({
     ctx.clearRect(0, 0, canvas.width, canvas.height);
 
     // 배경 중앙 좌표 계산
-    const backgroundWidth = canvasWidth * 0.8; // 배경 너비 설정
-    const backgroundHeight = canvasHeight * 0.8; // 배경 높이 설정
+    const backgroundWidth = canvasWidth; // 배경 너비 설정
+    const backgroundHeight = canvasHeight; // 배경 높이 설정
     const backgroundX = (canvasWidth - backgroundWidth) / 2; // 배경의 x 좌표 계산
     const backgroundY = (canvasHeight - backgroundHeight) / 2; // 배경의 y 좌표 계산
 
@@ -44,6 +44,7 @@ const Preview = ({
 
     // 글자를 캔버스 가운데에 위치시킴
     let canvasCenterX = canvas.width / 2;
+
     let canvasCenterY = canvas.height / 2;
     // ctx.fillText(text, canvasCenterX, canvasCenterY);
     for (let i = 0; i < lines.length; i++) {
@@ -56,8 +57,8 @@ const Preview = ({
   }, [text, color, size, thick, border, fontFamiliy, bgColor]);
 
   return (
-    <div className="flex justify-center">
-      <canvas ref={canvasRef} width={1040} height={469} />
+    <div className="flex justify-center mt-3">
+      <canvas ref={canvasRef} width={800} height={350} />
     </div>
   );
 };

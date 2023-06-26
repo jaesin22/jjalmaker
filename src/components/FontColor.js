@@ -23,11 +23,13 @@ const FontColor = ({ onColorChange }) => {
     <>
       <FontColorsOutlined
         onClick={handleColorIconClick}
-        className="flex items-center justify-center cursor-pointer mx-1"
+        className="flex items-center justify-center cursor-pointer"
         style={{
           color: color,
           backgroundColor: "#ffffff",
-          fontSize: "30px",
+          fontSize: "22px",
+          width: "32px",
+          height: "32px",
           border: "1px solid #000000",
           borderRadius: "3px",
         }}

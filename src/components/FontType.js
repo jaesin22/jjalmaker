@@ -30,6 +30,7 @@ const FontType = ({ onFontTypeChange }) => {
           key={index}
           style={{ fontFamily: fontItem.fontFamily }}
           onClick={() => handleFontTypeChange(fontItem)}
+          className="border-solid"
         >
           {fontItem.name}
         </Menu.Item>
@@ -38,7 +39,7 @@ const FontType = ({ onFontTypeChange }) => {
   );
 
   return (
-    <div className="flex mx-1">
+    <div className="flex">
       <Dropdown overlay={menu} className="bg-white w-44">
         <a
           href="font dropdown"
@@ -51,11 +52,14 @@ const FontType = ({ onFontTypeChange }) => {
               color: "black",
               fontSize: "14px",
             }}
-            className="ml-2 mt-5"
+            className="ml-2"
           >
             {selected.name}
           </span>
-          <DownOutlined style={{ color: "#e9ecef" }} className="h-6 w-10" />
+          <DownOutlined
+            style={{ color: "#e9ecef" }}
+            className="h-6 w-12 ml-2"
+          />
         </a>
       </Dropdown>
     </div>

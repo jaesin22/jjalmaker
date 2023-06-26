@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { FontColorsOutlined } from "@ant-design/icons";
+import { BgColorsOutlined } from "@ant-design/icons";
 import { ChromePicker } from "react-color";
 
 const BackgroundColor = ({ onBgColorChange }) => {
@@ -21,15 +21,16 @@ const BackgroundColor = ({ onBgColorChange }) => {
 
   return (
     <div>
-      <FontColorsOutlined
+      <BgColorsOutlined
         onClick={handleColorIconClick}
         style={{
           backgroundColor: bgcolor,
-          fontSize: "30px",
+          fontSize: "22px",
+          width: "32px",
+          height: "32px",
           border: "1px solid #ffffff",
           borderRadius: "3px",
           color: "#FFFFFF",
-          width: "30px,",
         }}
         className="flex items-center justify-center cursor-pointer "
       />
