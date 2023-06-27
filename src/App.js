@@ -9,13 +9,16 @@ import FontColor from "./components/FontColor";
 import Preview from "./Func/Preview";
 import { Space, Divider } from "antd";
 import BackgroundColor from "./components/BackgroundColor";
+import DownloadButton from "./components/DownloadButton";
 
 function App() {
   const [text, setText] = useState("Sample Text");
   const [color, setColor] = useState("#FFFFFF");
   const [selectedFontSize, setSelectedFontSize] = useState(60);
-  const [onFontWeight, setonFontWeight] = useState(30);
-  const [onFontBorder, setonFontBorder] = useState("transparent");
+  // const [onFontWeight, setonFontWeight] = useState(30);
+  // const [onFontBorder, setonFontBorder] = useState("transparent");
+  const onFontWeight = 30;
+  const onFontBorder = "transparent";
   const [onFontType, setonFontType] = useState("SANJUGotgam");
   const [bgcolor, setBgColor] = useState("#E9B1BE");
 
@@ -70,6 +73,7 @@ function App() {
           bgColor={bgcolor}
         />
         <Text onTextChange={handleTextChange} />
+        <DownloadButton />
         {/* <div className="flex w-full">
           <FontThickness onFontWeightChange={handleFontWeightChange} />
           <FontBorder onFontBorderChange={handleFontBorderChange} />

@@ -10,6 +10,7 @@ const Preview = ({
   fontFamiliy,
   bgColor,
 }) => {
+  console.log(fontFamiliy);
   const canvasRef = useRef(null);
   const lineHeight = 40;
 
