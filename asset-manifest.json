@@ -1,15 +1,15 @@
 {
   "files": {
-    "main.css": "/bannermaker/static/css/main.d1624bcb.css",
-    "main.js": "/bannermaker/static/js/main.93e3495b.js",
-    "static/js/787.1634a2bb.chunk.js": "/bannermaker/static/js/787.1634a2bb.chunk.js",
-    "index.html": "/bannermaker/index.html",
-    "main.d1624bcb.css.map": "/bannermaker/static/css/main.d1624bcb.css.map",
-    "main.93e3495b.js.map": "/bannermaker/static/js/main.93e3495b.js.map",
-    "787.1634a2bb.chunk.js.map": "/bannermaker/static/js/787.1634a2bb.chunk.js.map"
+    "main.css": "/jjalmaker/static/css/main.d1624bcb.css",
+    "main.js": "/jjalmaker/static/js/main.f9b5587c.js",
+    "static/js/787.1634a2bb.chunk.js": "/jjalmaker/static/js/787.1634a2bb.chunk.js",
+    "index.html": "/jjalmaker/index.html",
+    "main.d1624bcb.css.map": "/jjalmaker/static/css/main.d1624bcb.css.map",
+    "main.f9b5587c.js.map": "/jjalmaker/static/js/main.f9b5587c.js.map",
+    "787.1634a2bb.chunk.js.map": "/jjalmaker/static/js/787.1634a2bb.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.d1624bcb.css",
-    "static/js/main.93e3495b.js"
+    "static/js/main.f9b5587c.js"
   ]
 }
