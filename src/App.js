@@ -10,6 +10,7 @@ import Preview from "./Func/Preview";
 import { Space, Divider } from "antd";
 import BackgroundColor from "./components/BackgroundColor";
 import DownloadButton from "./components/DownloadButton";
+import { CanvasProvider } from "./Func/CanvasContext";
 
 function App() {
   const [text, setText] = useState("Sample Text");
@@ -63,17 +64,19 @@ function App() {
           <Divider type="vertical" className="bg-white" />
           <BackgroundColor onBgColorChange={handleBgColorChange} />
         </Space>
-        <Preview
-          text={text}
-          color={color}
-          size={selectedFontSize}
-          thick={onFontWeight}
-          border={onFontBorder}
-          fontFamiliy={onFontType}
-          bgColor={bgcolor}
-        />
-        <Text onTextChange={handleTextChange} />
-        <DownloadButton />
+        <CanvasProvider>
+          <Preview
+            text={text}
+            color={color}
+            size={selectedFontSize}
+            thick={onFontWeight}
+            border={onFontBorder}
+            fontFamiliy={onFontType}
+            bgColor={bgcolor}
+          />
+          <Text onTextChange={handleTextChange} />
+          <DownloadButton />
+        </CanvasProvider>
         {/* <div className="flex w-full">
           <FontThickness onFontWeightChange={handleFontWeightChange} />
           <FontBorder onFontBorderChange={handleFontBorderChange} />

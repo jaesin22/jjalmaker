@@ -12,7 +12,7 @@ const Text = ({ onTextChange }) => {
     <div className="flex mt-4 justify-center">
       <textarea
         rows="4"
-        className="w-[800px] text-sm text-white bg-[#222933] rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white
+        className="w-[700px] text-sm text-white bg-[#222933] rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white
          dark:focus:ring-blue-500 dark:focus:border-blue-500"
         onChange={onChange}
         value={text}
