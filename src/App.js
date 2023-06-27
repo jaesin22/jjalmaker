@@ -13,7 +13,7 @@ import BackgroundColor from "./components/BackgroundColor";
 function App() {
   const [text, setText] = useState("Sample Text");
   const [color, setColor] = useState("#FFFFFF");
-  const [selectedFontSize, setSelectedFontSize] = useState(40);
+  const [selectedFontSize, setSelectedFontSize] = useState(60);
   const [onFontWeight, setonFontWeight] = useState(30);
   const [onFontBorder, setonFontBorder] = useState("transparent");
   const [onFontType, setonFontType] = useState("SANJUGotgam");

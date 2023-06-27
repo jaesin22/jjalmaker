@@ -4,15 +4,18 @@ import { DownOutlined } from "@ant-design/icons";
 
 const sizes = [
   { name: 20 },
-  { name: 25 },
   { name: 30 },
-  { name: 35 },
   { name: 40 },
-  { name: 45 },
+  { name: 50 },
+  { name: 60 },
+  { name: 70 },
+  { name: 80 },
+  { name: 90 },
+  { name: 100 },
 ];
 
 const FontSize = ({ onSize }) => {
-  const [selected, setSelected] = useState(sizes[2]);
+  const [selected, setSelected] = useState(sizes[4]);
 
   const handleSelection = (selected) => {
     setSelected(selected);
@@ -33,22 +36,14 @@ const FontSize = ({ onSize }) => {
     <div className="flex w-20 bg-white border-solid border-1 border-white rounded-sm">
       <Dropdown
         overlay={menu}
-        className="ant-dropdown-link text-black border-solid border-1 border-white rounded-sm"
+        className="ant-dropdown-link w-20 border-solid border-1 rounded-sm"
       >
         <a
           href="font size dropdown"
           className="ant-dropdown-link text-black bolder font-bold"
           onClick={(e) => e.preventDefault()}
         >
-          <span
-            style={{
-              color: "black",
-              fontSize: "16px",
-            }}
-            className="ml-2"
-          >
-            {selected.name}
-          </span>
+          <span className="ml-2 text-base text-black">{selected.name}</span>
           <DownOutlined style={{ color: "#e9ecef" }} className="h-6 ml-7" />
         </a>
       </Dropdown>
