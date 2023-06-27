@@ -48,10 +48,12 @@ function App() {
   };
 
   return (
-    <div className="bg-[#222933] h-full">
-      <Head />
-      <main className="p-5 pl-16 h-full flex flex-col items-center ">
-        <Space className="justify-center items-center">
+    <section className="bg-[#222933] flex flex-col items-center justify-center min-h-screen">
+      <header className="mt-4">
+        <Head />
+      </header>
+      <main className="flex flex-col items-center justify-center flex-1">
+        <Space>
           <FontColor onColorChange={handleColorChange} />
           <FontType onFontTypeChange={handleFontTypeChange} />
           <FontSize onSize={handleFontSizeChange} />
@@ -73,7 +75,7 @@ function App() {
           <FontBorder onFontBorderChange={handleFontBorderChange} />
         </div> */}
       </main>
-    </div>
+    </section>
   );
 }
 

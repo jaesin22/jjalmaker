@@ -24,13 +24,15 @@ const FontType = ({ onFontTypeChange }) => {
   };
 
   const menu = (
-    <Menu>
+    <Menu
+      style={{ border: "1px solid #d9d9d9", borderRadius: "2px" }}
+      className="w-44"
+    >
       {font.map((fontItem, index) => (
         <Menu.Item
           key={index}
           style={{ fontFamily: fontItem.fontFamily }}
           onClick={() => handleFontTypeChange(fontItem)}
-          className="border-solid"
         >
           {fontItem.name}
         </Menu.Item>
@@ -39,11 +41,14 @@ const FontType = ({ onFontTypeChange }) => {
   );
 
   return (
-    <div className="flex">
-      <Dropdown overlay={menu} className="bg-white w-44">
+    <div
+      className="flex bg-white w-44"
+      style={{ border: "1px solid #d9d9d9", borderRadius: "2px" }}
+    >
+      <Dropdown overlay={menu}>
         <a
           href="font dropdown"
-          className="ant-dropdown-link text-black border-solid border-1 border-white rounded-sm"
+          className="ant-dropdown-link"
           onClick={(e) => e.preventDefault()}
         >
           <span
@@ -58,7 +63,7 @@ const FontType = ({ onFontTypeChange }) => {
           </span>
           <DownOutlined
             style={{ color: "#e9ecef" }}
-            className="h-6 w-12 ml-2"
+            className="h-6 w-11 ml-2"
           />
         </a>
       </Dropdown>
