@@ -30,7 +30,7 @@ const FontColor = ({ onColorChange }) => {
           fontSize: "22px",
           width: "32px",
           height: "32px",
-          border: "1px solid #000000",
+          border: "1px solid #ffffff",
           borderRadius: "3px",
         }}
       />

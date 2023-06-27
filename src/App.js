@@ -11,6 +11,7 @@ import { Space, Divider } from "antd";
 import BackgroundColor from "./components/BackgroundColor";
 import DownloadButton from "./components/DownloadButton";
 import { CanvasProvider } from "./Func/CanvasContext";
+import Upload from "./components/Upload";
 
 function App() {
   const [text, setText] = useState("Sample Text");
@@ -63,6 +64,7 @@ function App() {
           <FontSize onSize={handleFontSizeChange} />
           <Divider type="vertical" className="bg-white" />
           <BackgroundColor onBgColorChange={handleBgColorChange} />
+          <Upload />
         </Space>
         <CanvasProvider>
           <Preview
