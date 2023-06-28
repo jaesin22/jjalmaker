@@ -53,4 +53,4 @@ const BackgroundColor = ({ onBgColorChange }) => {
   );
 };
 
-export default BackgroundColor;
+export default React.memo(BackgroundColor);

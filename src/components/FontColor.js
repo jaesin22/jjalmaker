@@ -53,4 +53,4 @@ const FontColor = ({ onColorChange }) => {
   );
 };
 
-export default FontColor;
+export default React.memo(FontColor);

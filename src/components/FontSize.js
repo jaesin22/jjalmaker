@@ -1,4 +1,4 @@
-import { useState } from "react";
+import React, { useState } from "react";
 import { Dropdown, Menu } from "antd";
 import { DownOutlined } from "@ant-design/icons";
 
@@ -54,4 +54,4 @@ const FontSize = ({ onSize }) => {
   );
 };
 
-export default FontSize;
+export default React.memo(FontSize);

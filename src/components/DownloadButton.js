@@ -1,18 +1,18 @@
-import React, { useContext } from "react";
+import React, { useContext, useCallback } from "react";
 import CanvasContext from "../Func/CanvasContext";
 import { DownloadOutlined } from "@ant-design/icons";
 import { Button } from "antd";
 
-const DownloadButton = () => {
+const DownloadButton = React.memo(() => {
   const canvasRef = useContext(CanvasContext);
 
-  const download = () => {
+  const download = useCallback(() => {
     const url = canvasRef.current.toDataURL();
     const link = document.createElement("a");
     link.href = url;
     link.download = "image.png";
     link.click();
-  };
+  }, [canvasRef]);
 
   return (
     <>
@@ -28,5 +28,5 @@ const DownloadButton = () => {
       </Button>
     </>
   );
-};
+});
 export default DownloadButton;
