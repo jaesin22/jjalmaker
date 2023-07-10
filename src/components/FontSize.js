@@ -1,6 +1,8 @@
 import React, { useState } from "react";
 import { Dropdown, Menu } from "antd";
 import { DownOutlined } from "@ant-design/icons";
+import { sizeInfo } from "../reducers/font";
+import { useDispatch, useSelector } from "react-redux";
 
 const sizes = [
   { name: 20 },
@@ -15,7 +17,18 @@ const sizes = [
 ];
 
 const FontSize = ({ onSize }) => {
-  const [selected, setSelected] = useState(sizes[4]);
+  const [selected, setSelected] = useState(sizes[0]);
+
+  const dispatch = useDispatch();
+
+  const { size } = useSelector((state) => state.fontInfo);
+  console.log(size);
+
+  const changeSize = (selected) => {
+    // store에 있는 state 바꾸는 함수 실행
+    dispatch(sizeInfo(selected.name));
+    setSelected(selected);
+  };
 
   const handleSelection = (selected) => {
     setSelected(selected);
@@ -28,7 +41,7 @@ const FontSize = ({ onSize }) => {
       className="w-20"
     >
       {sizes.map((size, index) => (
-        <Menu.Item key={index} onClick={() => handleSelection(size)}>
+        <Menu.Item key={index} onClick={() => changeSize(size)}>
           {size.name}
         </Menu.Item>
       ))}
@@ -46,7 +59,7 @@ const FontSize = ({ onSize }) => {
           className="ant-dropdown-link text-black bolder font-bold"
           onClick={(e) => e.preventDefault()}
         >
-          <span className="ml-2 text-base text-black">{selected.name}</span>
+          <span className="ml-2 text-base text-black">{size}</span>
           <DownOutlined style={{ color: "#e9ecef" }} className="h-6 ml-7" />
         </a>
       </Dropdown>
