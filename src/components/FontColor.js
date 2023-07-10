@@ -1,18 +1,23 @@
 import React, { useState } from "react";
 import { FontColorsOutlined } from "@ant-design/icons";
 import { ChromePicker } from "react-color";
+import { useSelector, useDispatch } from "react-redux";
+import { fontColor } from "../reducers/font";
 
-const FontColor = ({ onColorChange }) => {
-  const [color, setColor] = useState("#ff0000");
+const FontColor = () => {
+  const dispatch = useDispatch();
+
+  const { color } = useSelector((state) => state.bannerInfo);
+
+  const changeColor = (selected) => {
+    // store에 있는 state 바꾸는 함수 실행
+    dispatch(fontColor(selected.name));
+  };
+
   const [showColorPicker, setShowColorPicker] = useState(false);
 
   const handleColorIconClick = () => {
     setShowColorPicker(!showColorPicker);
-  };
-
-  const handleColorChange = (e) => {
-    setColor(e.hex);
-    onColorChange(e.hex);
   };
 
   const handleClose = () => {
@@ -46,7 +51,7 @@ const FontColor = ({ onColorChange }) => {
             }}
             onClick={handleClose}
           />
-          <ChromePicker color={color} onChange={handleColorChange} />
+          <ChromePicker color={color} onChange={changeColor} />
         </div>
       )}
     </>

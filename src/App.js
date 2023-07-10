@@ -10,12 +10,12 @@ import BackgroundColor from "./components/BackgroundColor";
 import DownloadButton from "./components/DownloadButton";
 import { CanvasProvider } from "./Func/CanvasContext";
 import Upload from "./components/Upload";
+import CanvasContainer from "./containers/CanvasContainer";
 
 function App() {
   const [text, setText] = useState("Sample Text");
   const [color, setColor] = useState("#FFFFFF");
   const [selectedFontSize, setSelectedFontSize] = useState(60);
-  const onFontWeight = 30;
   const onFontBorder = "transparent";
   const [onFontType, setonFontType] = useState("SANJUGotgam");
   const [bgcolor, setBgColor] = useState("#E9B1BE");
@@ -46,8 +46,8 @@ function App() {
   }, []);
 
   return (
-    <section className="bg-[#222933] flex flex-col items-center justify-center min-h-screen">
-      <header className="mt-4">
+    <div className="bg-[#222933] flex flex-col items-center justify-center min-h-screen">
+      {/* <header className="mt-4">
         <Head />
       </header>
       <main className="flex flex-col items-center justify-center flex-1">
@@ -64,7 +64,6 @@ function App() {
             text={text}
             color={color}
             size={selectedFontSize}
-            thick={onFontWeight}
             border={onFontBorder}
             fontFamiliy={onFontType}
             bgColor={bgcolor}
@@ -73,8 +72,9 @@ function App() {
           <Text onTextChange={handleTextChange} />
           <DownloadButton />
         </CanvasProvider>
-      </main>
-    </section>
+      </main> */}
+      <CanvasContainer />
+    </div>
   );
 }
 

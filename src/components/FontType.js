@@ -1,6 +1,8 @@
 import { useState } from "react";
 import { Dropdown, Menu } from "antd";
 import { DownOutlined } from "@ant-design/icons";
+import { useDispatch, useSelector } from "react-redux";
+import { fontType } from "../reducers/font";
 
 const font = [
   { name: "SANJUGotgam", fontFamily: "SANJUGotgam" },
@@ -14,13 +16,14 @@ const font = [
   { name: "Nanum Gothic Coding", fontFamily: "Nanum Gothic Coding" },
 ];
 
-const FontType = ({ onFontTypeChange }) => {
-  const [selected, setSelected] = useState(font[0]);
+const FontType = () => {
+  const dispatch = useDispatch();
 
-  const handleFontTypeChange = (fontItem) => {
-    const { name } = fontItem;
-    setSelected(fontItem);
-    onFontTypeChange(name);
+  const { type } = useSelector((state) => state.bannerInfo);
+
+  const changeType = (selected) => {
+    // store에 있는 state 바꾸는 함수 실행
+    dispatch(fontType(selected.name));
   };
 
   const menu = (
@@ -32,7 +35,7 @@ const FontType = ({ onFontTypeChange }) => {
         <Menu.Item
           key={index}
           style={{ fontFamily: fontItem.fontFamily }}
-          onClick={() => handleFontTypeChange(fontItem)}
+          onClick={() => changeType(fontItem)}
         >
           {fontItem.name}
         </Menu.Item>
@@ -53,13 +56,13 @@ const FontType = ({ onFontTypeChange }) => {
         >
           <span
             style={{
-              fontFamily: selected.fontFamily,
+              fontFamily: type,
               color: "black",
               fontSize: "14px",
             }}
             className="ml-2"
           >
-            {selected.name}
+            {type}
           </span>
           <DownOutlined
             style={{ color: "#e9ecef" }}

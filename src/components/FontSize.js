@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import { Dropdown, Menu } from "antd";
 import { DownOutlined } from "@ant-design/icons";
 import { sizeInfo } from "../reducers/font";
@@ -16,23 +16,14 @@ const sizes = [
   { name: 100 },
 ];
 
-const FontSize = ({ onSize }) => {
-  const [selected, setSelected] = useState(sizes[0]);
-
+const FontSize = () => {
   const dispatch = useDispatch();
 
-  const { size } = useSelector((state) => state.fontInfo);
-  console.log(size);
+  const { size } = useSelector((state) => state.bannerInfo);
 
   const changeSize = (selected) => {
     // store에 있는 state 바꾸는 함수 실행
     dispatch(sizeInfo(selected.name));
-    setSelected(selected);
-  };
-
-  const handleSelection = (selected) => {
-    setSelected(selected);
-    onSize(selected.name); // 선택된 값을 부모 컴포넌트로 전달
   };
 
   const menu = (
