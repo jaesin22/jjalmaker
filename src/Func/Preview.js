@@ -6,7 +6,6 @@ const Preview = ({
   text,
   color,
   size,
-  thick,
   border,
   fontFamiliy,
   bgColor,
@@ -30,7 +29,7 @@ const Preview = ({
       ctx.clearRect(0, 0, canvas.width, canvas.height);
 
       const drawText = (ctx, lines) => {
-        ctx.font = `${thick} ${size}px ${fontFamiliy}`;
+        ctx.font = `${size}px ${fontFamiliy}`;
         ctx.fillStyle = color;
         ctx.textAlign = "center";
         ctx.strokeStyle = border;
