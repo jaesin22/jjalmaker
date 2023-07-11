@@ -28,13 +28,11 @@ const FontColor = () => {
     <>
       <FontColorsOutlined
         onClick={handleColorIconClick}
-        className="flex items-center justify-center cursor-pointer"
+        className="flex items-center justify-center cursor-pointer 
+        text-lg w-7 h-7 lg:text-[22px] lg:w-8 lg:h-8"
         style={{
           color: color,
           backgroundColor: "#ffffff",
-          fontSize: "22px",
-          width: "32px",
-          height: "32px",
           border: "1px solid #ffffff",
           borderRadius: "3px",
         }}

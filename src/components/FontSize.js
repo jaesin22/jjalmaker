@@ -29,7 +29,7 @@ const FontSize = () => {
   const menu = (
     <Menu
       style={{ border: "1px solid #d9d9d9", borderRadius: "2px" }}
-      className="w-20"
+      className="w-16 lg:w-20"
     >
       {sizes.map((size, index) => (
         <Menu.Item key={index} onClick={() => changeSize(size)}>
@@ -41,7 +41,7 @@ const FontSize = () => {
 
   return (
     <div
-      className="flex w-20 bg-white"
+      className="flex w-16 bg-white h-8 lg:w-20 lg:h-8"
       style={{ border: "1px solid #d9d9d9", borderRadius: "2px" }}
     >
       <Dropdown overlay={menu} className="ant-dropdown-link">
@@ -51,7 +51,10 @@ const FontSize = () => {
           onClick={(e) => e.preventDefault()}
         >
           <span className="ml-2 text-base text-black">{size}</span>
-          <DownOutlined style={{ color: "#e9ecef" }} className="h-6 ml-7" />
+          <DownOutlined
+            style={{ color: "#e9ecef" }}
+            className="ml-1 lg:w-10 lg:ml-2"
+          />
         </a>
       </Dropdown>
     </div>

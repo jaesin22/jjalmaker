@@ -30,14 +30,12 @@ const BackgroundColor = () => {
         onClick={handleColorIconClick}
         style={{
           backgroundColor: bgcolor,
-          fontSize: "22px",
-          width: "32px",
-          height: "32px",
           border: "1px solid #ffffff",
           borderRadius: "3px",
           color: "#FFFFFF",
         }}
-        className="flex items-center justify-center cursor-pointer "
+        className="flex items-center justify-center cursor-pointer 
+        text-lg w-7 h-7 lg:text-[20px] lg:w-8 lg:h-8"
       />
       {showColorPicker && (
         <div className="absolute">

@@ -85,7 +85,7 @@ const Preview = ({
     <div className="flex justify-center mt-3">
       <canvas
         ref={canvasRef}
-        className="w-[450px] h-[350px] md:w-[550px] lg:w-[700px]"
+        className="w-[350px] h-[200px] md:w-[550px] md:h-[275px] lg:w-[700px] lg:h-[350px]"
       />
     </div>
   );
