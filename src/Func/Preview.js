@@ -83,7 +83,10 @@ const Preview = ({
 
   return (
     <div className="flex justify-center mt-3">
-      <canvas ref={canvasRef} width={700} height={350} />
+      <canvas
+        ref={canvasRef}
+        className="w-[450px] h-[350px] md:w-[550px] lg:w-[700px]"
+      />
     </div>
   );
 };

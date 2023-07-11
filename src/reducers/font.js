@@ -7,7 +7,7 @@ export const BG_COLOR = "BG_COLOR";
 export const IMAGE = "IMAGE";
 
 const initialState = {
-  size: 60,
+  size: 30,
   text: "Sample Text",
   color: "#FFFFFF",
   border: "transparent",

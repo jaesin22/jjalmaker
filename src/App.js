@@ -13,7 +13,7 @@ import CanvasContainer from "./containers/CanvasContainer";
 
 function App() {
   return (
-    <div className="bg-[#222933] flex flex-col items-center justify-center min-h-screen">
+    <div className="bg-[#222933] flex flex-col items-center justify-center min-h-screen min-w-full">
       <header className="mt-4">
         <Head />
       </header>
