@@ -32,7 +32,7 @@ const FontType = () => {
   const menu = (
     <Menu
       style={{ border: "1px solid #d9d9d9", borderRadius: "2px" }}
-      className="w-44"
+      className="w-36 lg:w-44"
     >
       {font.map((fontItem, index) => (
         <Menu.Item
@@ -52,7 +52,7 @@ const FontType = () => {
 
   return (
     <div
-      className="flex bg-white w-44"
+      className="flex bg-white w-36 h-7 lg:w-44 lg:h-8"
       style={{ border: "1px solid #d9d9d9", borderRadius: "2px" }}
     >
       <Dropdown overlay={menu}>
@@ -74,7 +74,7 @@ const FontType = () => {
           </span>
           <DownOutlined
             style={{ color: "#e9ecef" }}
-            className="h-6 w-11 ml-2"
+            className="ml-1 lg:w-11 lg:ml-2"
           />
         </a>
       </Dropdown>
