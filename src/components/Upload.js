@@ -1,7 +1,10 @@
 import React, { useRef } from "react";
 import { UploadOutlined } from "@ant-design/icons";
+import { useDispatch } from "react-redux";
+import { setImage } from "../reducers/font";
 
-const UploadImage = ({ onImageUpload }) => {
+const UploadImage = () => {
+  const dispatch = useDispatch();
   const fileInputRef = useRef(null);
 
   const upload = () => {
@@ -14,7 +17,7 @@ const UploadImage = ({ onImageUpload }) => {
 
     reader.onload = (e) => {
       const imageDataUrl = e.target.result;
-      onImageUpload(imageDataUrl);
+      dispatch(setImage(imageDataUrl));
     };
 
     reader.readAsDataURL(file);

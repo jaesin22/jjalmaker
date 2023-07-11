@@ -67,7 +67,6 @@ const Preview = ({
     text,
     color,
     size,
-    thick,
     border,
     fontFamiliy,
     bgColor,

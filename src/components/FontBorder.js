@@ -2,7 +2,7 @@ import { useState } from "react";
 import { Listbox } from "@headlessui/react";
 import { ChevronUpDownIcon } from "@heroicons/react/20/solid";
 import { fontBorder } from "../reducers/font";
-import { useSelector, useDispatch } from "react-redux";
+import { useDispatch } from "react-redux";
 
 const font = [
   { name: "없음", fontBorder: "transparent" },
@@ -11,17 +11,14 @@ const font = [
 ];
 
 const FontBorder = () => {
+  const [selected, setSelected] = useState("");
   const dispatch = useDispatch();
-
-  const { border } = useSelector((state) => state.bannerInfo);
 
   const changeBorder = (selected) => {
     // store에 있는 state 바꾸는 함수 실행
     dispatch(fontBorder(selected.fontBorder));
     setSelected(selected.name);
   };
-
-  const [selected, setSelected] = useState("");
 
   return (
     <div className="flex flex-row mt-12 w-96">

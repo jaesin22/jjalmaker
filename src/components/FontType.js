@@ -1,25 +1,28 @@
-import { useState } from "react";
 import { Dropdown, Menu } from "antd";
 import { DownOutlined } from "@ant-design/icons";
 import { useDispatch, useSelector } from "react-redux";
 import { fontType } from "../reducers/font";
 
 const font = [
-  { name: "SANJUGotgam", fontFamily: "SANJUGotgam" },
-  { name: "Gowun Dodum", fontFamily: "Gowun Dodum" },
-  { name: "JSongMyung", fontFamily: "JSongMyung" },
-  { name: "Nanum Gothic", fontFamily: "Nanum Gothic" },
-  { name: "Nanum Pen Script", fontFamily: "Nanum Pen Script" },
-  { name: "CookieRunOTF-Bold", fontFamily: "CookieRunOTF-Bold" },
-  { name: "Nanum Myeongjo", fontFamily: "Nanum Myeongjo" },
-  { name: "Noto Sans KR", fontFamily: "Noto Sans KR" },
-  { name: "Nanum Gothic Coding", fontFamily: "Nanum Gothic Coding" },
+  { name: "SANJUGotgam", fontFamily: "SANJUGotgam", size: "14px" },
+  { name: "Gowun Dodum", fontFamily: "Gowun Dodum", size: "14px" },
+  { name: "JSongMyung", fontFamily: "JSongMyung", size: "14px" },
+  { name: "Nanum Gothic", fontFamily: "Nanum Gothic", size: "14px" },
+  { name: "Nanum Pen Script", fontFamily: "Nanum Pen Script", size: "14px" },
+  { name: "CookieRunOTF-Bold", fontFamily: "CookieRunOTF-Bold", size: "11px" },
+  { name: "Nanum Myeongjo", fontFamily: "Nanum Myeongjo", size: "14px" },
+  { name: "Noto Sans KR", fontFamily: "Noto Sans KR", size: "14px" },
+  {
+    name: "Nanum Gothic Coding",
+    fontFamily: "Nanum Gothic Coding",
+    size: "12px",
+  },
 ];
 
 const FontType = () => {
   const dispatch = useDispatch();
 
-  const { type } = useSelector((state) => state.bannerInfo);
+  const { fttype } = useSelector((state) => state.bannerInfo);
 
   const changeType = (selected) => {
     // store에 있는 state 바꾸는 함수 실행
@@ -43,6 +46,10 @@ const FontType = () => {
     </Menu>
   );
 
+  const selectedFontSize = font.find(
+    (fontItem) => fontItem.name === fttype
+  )?.size;
+
   return (
     <div
       className="flex bg-white w-44"
@@ -56,13 +63,14 @@ const FontType = () => {
         >
           <span
             style={{
-              fontFamily: type,
+              fontFamily: fttype,
               color: "black",
-              fontSize: "14px",
+              fontSize: selectedFontSize,
+              textAlign: "left",
             }}
             className="ml-2"
           >
-            {type}
+            {fttype}
           </span>
           <DownOutlined
             style={{ color: "#e9ecef" }}
@@ -75,4 +83,3 @@ const FontType = () => {
 };
 
 export default FontType;
-// 1px solid #d9d9d9

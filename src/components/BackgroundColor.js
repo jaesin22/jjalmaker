@@ -1,18 +1,23 @@
 import React, { useState } from "react";
 import { BgColorsOutlined } from "@ant-design/icons";
 import { ChromePicker } from "react-color";
+import { bg_Color } from "../reducers/font";
+import { useSelector, useDispatch } from "react-redux";
 
-const BackgroundColor = ({ onBgColorChange }) => {
-  const [bgcolor, setBgColor] = useState("#E9B1BE");
+const BackgroundColor = () => {
+  const dispatch = useDispatch();
+
+  const { bgcolor } = useSelector((state) => state.bannerInfo);
+
+  const handleColorChange = (e) => {
+    // store에 있는 state 바꾸는 함수 실행
+    dispatch(bg_Color(e.hex));
+  };
+
   const [showColorPicker, setShowColorPicker] = useState(false);
 
   const handleColorIconClick = () => {
     setShowColorPicker(!showColorPicker);
-  };
-
-  const handleColorChange = (e) => {
-    setBgColor(e.hex);
-    onBgColorChange(e.hex);
   };
 
   const handleClose = () => {

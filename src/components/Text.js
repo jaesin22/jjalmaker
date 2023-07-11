@@ -1,14 +1,15 @@
-import React, { useState } from "react";
-import { useDispatch, useSelector } from "react-redux";
+import React from "react";
+import { useDispatch } from "react-redux";
 import { setText } from "../reducers/font";
+import { useState } from "react";
 const Text = () => {
+  const [text, setTexts] = useState(" ");
   const dispatch = useDispatch();
-
-  const { text } = useSelector((state) => state.bannerInfo);
 
   const changeText = (e) => {
     // store에 있는 state 바꾸는 함수 실행
     dispatch(setText(e.target.value));
+    setTexts(e.target.value);
   };
 
   return (

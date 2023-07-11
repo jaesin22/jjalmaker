@@ -15,7 +15,6 @@ const enhancer =
     : composeWithDevTools(applyMiddleware(logger));
 
 const store = createStore(rootReducer, enhancer);
-console.log(store.getState());
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(

@@ -1,17 +1,17 @@
 import React, { useState } from "react";
 import { FontColorsOutlined } from "@ant-design/icons";
 import { ChromePicker } from "react-color";
-import { useSelector, useDispatch } from "react-redux";
+import { useDispatch } from "react-redux";
 import { fontColor } from "../reducers/font";
 
 const FontColor = () => {
   const dispatch = useDispatch();
+  const [color, setColor] = useState("#ff0000");
 
-  const { color } = useSelector((state) => state.bannerInfo);
-
-  const changeColor = (selected) => {
+  const changeColor = (e) => {
     // store에 있는 state 바꾸는 함수 실행
-    dispatch(fontColor(selected.name));
+    dispatch(fontColor(e.hex));
+    setColor(e.hex);
   };
 
   const [showColorPicker, setShowColorPicker] = useState(false);

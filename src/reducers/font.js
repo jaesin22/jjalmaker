@@ -2,27 +2,29 @@ export const SIZE = "FONT/SIZE";
 export const TYPE = "FONT/TYPE";
 export const TEXT = "FONT/TEXT";
 export const COLOR = "FONT/COLOR";
-export const WEIGHT = "FONT/WEIGHT";
 export const BORDER = "FONT/BORDER";
+export const BG_COLOR = "BG_COLOR";
+export const IMAGE = "IMAGE";
 
 const initialState = {
   size: 60,
   text: "Sample Text",
   color: "#FFFFFF",
   border: "transparent",
-  type: "SANJUGotgam",
+  fttype: "SANJUGotgam",
   bgcolor: "#E9B1BE",
   imageUrl: "",
 };
 
 export const sizeInfo = (size) => ({ type: SIZE, size });
-export const fontType = (type) => ({ type: TYPE, type });
+export const fontType = (fttype) => ({ type: TYPE, fttype });
 export const setText = (text) => ({ type: TEXT, text });
 export const fontColor = (color) => ({ type: COLOR, color });
 export const fontBorder = (border) => ({ type: BORDER, border });
+export const bg_Color = (bgcolor) => ({ type: BG_COLOR, bgcolor });
+export const setImage = (imageUrl) => ({ type: IMAGE, imageUrl });
 
 const bannerInfo = (state = initialState, action) => {
-  console.log(action);
   switch (action.type) {
     case SIZE:
       return {
@@ -32,7 +34,7 @@ const bannerInfo = (state = initialState, action) => {
     case TYPE:
       return {
         ...state,
-        type: action.type,
+        fttype: action.fttype,
       };
     case TEXT:
       return {
@@ -48,6 +50,16 @@ const bannerInfo = (state = initialState, action) => {
       return {
         ...state,
         color: action.color,
+      };
+    case BG_COLOR:
+      return {
+        ...state,
+        bgcolor: action.bgcolor,
+      };
+    case IMAGE:
+      return {
+        ...state,
+        imageUrl: action.imageUrl,
       };
     default:
       return state;
