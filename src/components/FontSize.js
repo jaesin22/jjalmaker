@@ -41,7 +41,7 @@ const FontSize = () => {
 
   return (
     <div
-      className="flex w-16 bg-white h-8 lg:w-20 lg:h-8"
+      className="flex w-16 bg-white h-7 lg:w-20 lg:h-8"
       style={{ border: "1px solid #d9d9d9", borderRadius: "2px" }}
     >
       <Dropdown overlay={menu} className="ant-dropdown-link">
