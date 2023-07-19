@@ -3,7 +3,23 @@ import { DownOutlined } from "@ant-design/icons";
 import { useDispatch, useSelector } from "react-redux";
 import { fontType } from "../reducers/font";
 
-const font = [
+interface FontInfo {
+  name: string;
+  fontFamily: string;
+  size: string;
+}
+
+interface bannerInfo {
+  fttype: string;
+}
+
+interface SelectedOption {
+  name: string;
+  fontFamily?: string;
+  size?: string;
+}
+
+const font: FontInfo[] = [
   { name: "SANJUGotgam", fontFamily: "SANJUGotgam", size: "14px" },
   { name: "Gowun Dodum", fontFamily: "Gowun Dodum", size: "14px" },
   { name: "JSongMyung", fontFamily: "JSongMyung", size: "14px" },
@@ -22,9 +38,11 @@ const font = [
 const FontType = () => {
   const dispatch = useDispatch();
 
-  const { fttype } = useSelector((state) => state.bannerInfo);
+  const { fttype } = useSelector(
+    (state: { bannerInfo: bannerInfo }) => state.bannerInfo
+  );
 
-  const changeType = (selected) => {
+  const changeType = (selected: SelectedOption) => {
     // store에 있는 state 바꾸는 함수 실행
     dispatch(fontType(selected.name));
   };

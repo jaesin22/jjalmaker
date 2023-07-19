@@ -1,36 +1,38 @@
 import { useState } from "react";
 import { Listbox } from "@headlessui/react";
 import { ChevronUpDownIcon } from "@heroicons/react/20/solid";
-import { fontBorder } from "../reducers/font";
-import { useDispatch } from "react-redux";
 
-const font = [
-  { name: "없음", fontBorder: "transparent" },
-  { name: "검정색", fontBorder: "black" },
-  { name: "흰색", fontBorder: "white" },
+interface fontInfo {
+  name: string;
+  fontWeight: string;
+}
+
+const font: fontInfo[] = [
+  { name: "얇게", fontWeight: "lighter" },
+  { name: "보통", fontWeight: "normal" },
+  { name: "두껍게", fontWeight: "bold" },
 ];
 
-const FontBorder = () => {
-  const [selected, setSelected] = useState("");
-  const dispatch = useDispatch();
+const FontThickness = () => {
+  const [selected, setSelected] = useState(font[1]);
 
-  const changeBorder = (selected) => {
-    // store에 있는 state 바꾸는 함수 실행
-    dispatch(fontBorder(selected.fontBorder));
-    setSelected(selected.name);
+  const FontWeightSelect = (item: fontInfo) => {
+    const { name, fontWeight } = item;
+    setSelected(item);
   };
 
   return (
     <div className="flex flex-row mt-12 w-96">
-      <label className="ml-5 pt-2">폰트 테두리</label>
+      <label className="flex-none mr-3 pt-2">폰트 두께</label>
       <Listbox
         value={selected}
-        onChange={changeBorder}
+        onChange={FontWeightSelect}
         className="absolute ml-32"
+        as="div"
       >
         <div className="mt-1">
           <Listbox.Button
-            className="cursor-default rounded-lg w-64 2xl:w-full
+            className="cursor-default rounded-lg w-64 2xl:w-96
            bg-[#222933] text-white py-2 pl-3 pr-10 text-left shadow-md focus:outline-none sm:text-sm"
           >
             <span className="block truncate">{selected.name}</span>
@@ -75,4 +77,4 @@ const FontBorder = () => {
   );
 };
 
-export default FontBorder;
+export default FontThickness;
