@@ -4,10 +4,10 @@ import { ChevronUpDownIcon } from "@heroicons/react/20/solid";
 import { fontBorder } from "../reducers/font";
 import { useDispatch } from "react-redux";
 
-interface border {
+type border = {
   name: string;
   fontBorder: string;
-}
+};
 
 const font: border[] = [
   { name: "없음", fontBorder: "transparent" },
@@ -16,13 +16,13 @@ const font: border[] = [
 ];
 
 const FontBorder = () => {
-  const [selected, setSelected] = useState("");
+  const [selected, setSelected] = useState<border>(font[0]);
   const dispatch = useDispatch();
 
-  const changeBorder = (selected: ChangeEvent) => {
+  const changeBorder = (selected: border) => {
     // store에 있는 state 바꾸는 함수 실행
     dispatch(fontBorder(selected.fontBorder));
-    setSelected(selected.name);
+    setSelected(selected);
   };
 
   return (
