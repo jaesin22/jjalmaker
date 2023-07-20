@@ -1,15 +1,20 @@
 import React, { useState } from "react";
 import { BgColorsOutlined } from "@ant-design/icons";
-import { ChromePicker } from "react-color";
+import { ChromePicker, ColorResult } from "react-color";
 import { bg_Color } from "../reducers/font";
 import { useSelector, useDispatch } from "react-redux";
 
 const BackgroundColor = () => {
   const dispatch = useDispatch();
 
-  const { bgcolor } = useSelector((state) => state.bannerInfo);
+  interface Bgcolor {
+    bgcolor: string;
+  }
+  const { bgcolor } = useSelector(
+    (state: { bannerInfo: Bgcolor }) => state.bannerInfo
+  );
 
-  const handleColorChange = (e) => {
+  const handleColorChange = (e: ColorResult) => {
     // store에 있는 state 바꾸는 함수 실행
     dispatch(bg_Color(e.hex));
   };

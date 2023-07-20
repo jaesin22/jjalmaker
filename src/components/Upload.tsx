@@ -1,26 +1,28 @@
-import React, { useRef } from "react";
+import React, { ChangeEvent, useRef } from "react";
 import { UploadOutlined } from "@ant-design/icons";
 import { useDispatch } from "react-redux";
 import { setImage } from "../reducers/font";
 
 const UploadImage = () => {
   const dispatch = useDispatch();
-  const fileInputRef = useRef(null);
+  const fileInputRef = useRef<HTMLInputElement>(null);
 
   const upload = () => {
-    fileInputRef.current.click();
+    fileInputRef.current?.click();
   };
 
-  const handleFileChange = (event) => {
-    const file = event.target.files[0];
+  const handleFileChange = (event: ChangeEvent<HTMLInputElement>) => {
+    const file = event.target.files?.[0];
     const reader = new FileReader();
-
-    reader.onload = (e) => {
-      const imageDataUrl = e.target.result;
-      dispatch(setImage(imageDataUrl));
-    };
-
-    reader.readAsDataURL(file);
+    if (file) {
+      reader.onloadend = () => {
+        const imageDataUrl = reader.result as string;
+        dispatch(setImage(imageDataUrl));
+      };
+    }
+    if (typeof file === "object") {
+      reader.readAsDataURL(file);
+    }
   };
 
   return (

@@ -1,10 +1,11 @@
 import React from "react";
 import { useSelector } from "react-redux";
 import Preview from "../Func/Preview";
+import { RootState } from "../reducers";
 
 function CanvasContainer() {
   const { size, fttype, color, text, bgcolor, border, imageUrl } = useSelector(
-    (state) => state.bannerInfo
+    (state: RootState) => state.bannerInfo
   );
 
   return (

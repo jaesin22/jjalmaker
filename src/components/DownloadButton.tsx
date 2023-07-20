@@ -7,11 +7,13 @@ const DownloadButton = React.memo(() => {
   const canvasRef = useContext(CanvasContext);
 
   const download = useCallback(() => {
-    const url = canvasRef.current.toDataURL();
-    const link = document.createElement("a");
-    link.href = url;
-    link.download = "image.png";
-    link.click();
+    if (canvasRef?.current) {
+      const url = canvasRef.current.toDataURL();
+      const link = document.createElement("a");
+      link.href = url;
+      link.download = "image.png";
+      link.click();
+    }
   }, [canvasRef]);
 
   return (
