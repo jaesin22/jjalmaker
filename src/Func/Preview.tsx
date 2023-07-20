@@ -1,7 +1,15 @@
 import React, { useEffect, useContext, useMemo } from "react";
 import CanvasContext from "./CanvasContext";
 import "../styles/App.css";
-
+type PreviewProps = {
+  text: string;
+  color: string;
+  size: number;
+  border: string;
+  fontFamiliy: string;
+  bgColor: string;
+  imageUrl: string;
+};
 const Preview = ({
   text,
   color,
@@ -10,16 +18,16 @@ const Preview = ({
   fontFamiliy,
   bgColor,
   imageUrl,
-}) => {
+}: PreviewProps) => {
   const canvasRef = useContext(CanvasContext);
-  const lineHeight = 40;
+  const lineHeight = size * 1.4;
 
   const drawCanvas = useMemo(() => {
     return () => {
-      const canvas = canvasRef.current;
-      if (!canvas) return; // canvas가 유효하지 않은 경우 빠른 반환
+      const canvas = canvasRef?.current;
+      const ctx = canvas?.getContext("2d");
+      if (!canvas || !ctx) return; // canvas나 ctx가 유효하지 않은 경우 빠른 반환
 
-      const ctx = canvas.getContext("2d");
       const lines = text.split("\n");
 
       const canvasWidth = canvas.width;
@@ -28,14 +36,17 @@ const Preview = ({
       // 초기화
       ctx.clearRect(0, 0, canvas.width, canvas.height);
 
-      const drawText = (ctx, lines) => {
+      const drawText = (ctx: CanvasRenderingContext2D, lines: string[]) => {
         ctx.font = `${size}px ${fontFamiliy}`;
         ctx.fillStyle = color;
         ctx.textAlign = "center";
         ctx.strokeStyle = border;
-
+        console.log(ctx.getContextAttributes());
+        if (!canvasRef.current) return;
         let canvasCenterX = canvasRef.current.width / 2;
         let canvasCenterY = canvasRef.current.height / 2;
+
+        console.log(canvasRef.current.width, canvas.width);
 
         for (let i = 0; i < lines.length; i++) {
           const line = lines[i];
@@ -46,20 +57,17 @@ const Preview = ({
       };
 
       if (imageUrl) {
-        // 이미지가 있을 경우 이미지를 배경으로 그림
+        // 이미지 배경인 경우
         const img = new Image();
         img.src = imageUrl;
         img.onload = () => {
           ctx.drawImage(img, 0, 0, canvasWidth, canvasHeight);
-
-          // 이미지 로드 후 텍스트 그리기
           drawText(ctx, lines);
         };
       } else {
-        // 이미지가 없을 경우 배경을 채우고 텍스트 그리기
+        // 색상 배경인 경우
         ctx.fillStyle = bgColor;
         ctx.fillRect(0, 0, canvasWidth, canvasHeight);
-
         drawText(ctx, lines);
       }
     };
@@ -76,7 +84,7 @@ const Preview = ({
   ]);
 
   useEffect(() => {
-    if (canvasRef.current) {
+    if (canvasRef?.current) {
       drawCanvas();
     }
   }, [canvasRef, drawCanvas]);
