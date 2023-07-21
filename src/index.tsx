@@ -15,7 +15,9 @@ const enhancer =
 
 const store = createStore(rootReducer, enhancer);
 
-const root = ReactDOM.createRoot(document.getElementById("root"));
+const root = ReactDOM.createRoot(
+  document.getElementById("root") as HTMLElement
+);
 root.render(
   <Provider store={store}>
     <App />

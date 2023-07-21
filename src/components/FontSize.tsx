@@ -4,7 +4,15 @@ import { DownOutlined } from "@ant-design/icons";
 import { sizeInfo } from "../reducers/font";
 import { useDispatch, useSelector } from "react-redux";
 
-const sizes = [
+interface SizeOption {
+  name: number;
+}
+
+interface BannerInfoState {
+  size: number;
+}
+
+const sizes: SizeOption[] = [
   { name: 20 },
   { name: 30 },
   { name: 40 },
@@ -19,9 +27,11 @@ const sizes = [
 const FontSize = () => {
   const dispatch = useDispatch();
 
-  const { size } = useSelector((state) => state.bannerInfo);
+  const { size } = useSelector(
+    (state: { bannerInfo: BannerInfoState }) => state.bannerInfo
+  );
 
-  const changeSize = (selected) => {
+  const changeSize = (selected: SizeOption) => {
     // store에 있는 state 바꾸는 함수 실행
     dispatch(sizeInfo(selected.name));
   };
