@@ -5101,7 +5101,11 @@ follow-redirects@^1.0.0:
 
 fontfaceobserver@^2.3.0:
   version "2.3.0"
+<<<<<<< HEAD
   resolved "https://registry.npmjs.org/fontfaceobserver/-/fontfaceobserver-2.3.0.tgz"
+=======
+  resolved "https://registry.yarnpkg.com/fontfaceobserver/-/fontfaceobserver-2.3.0.tgz#5fb392116e75d5024b7ec8e4f2ce92106d1488c8"
+>>>>>>> bec86833a5223d4a07c0815a785ccf2df35da6be
   integrity sha512-6FPvD/IVyT4ZlNe7Wcn5Fb/4ChigpucKYSvD6a+0iMoLn2inpo711eyIcKjmDtE5XNcgAkSH9uN/nfAeZzHEfg==
 
 for-each@^0.3.3:
