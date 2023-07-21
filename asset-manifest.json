@@ -1,13 +1,13 @@
 {
   "files": {
     "main.css": "/jjalmaker/static/css/main.ed4fc031.css",
-    "main.js": "/jjalmaker/static/js/main.7434816c.js",
+    "main.js": "/jjalmaker/static/js/main.3d4c3915.js",
     "index.html": "/jjalmaker/index.html",
     "main.ed4fc031.css.map": "/jjalmaker/static/css/main.ed4fc031.css.map",
-    "main.7434816c.js.map": "/jjalmaker/static/js/main.7434816c.js.map"
+    "main.3d4c3915.js.map": "/jjalmaker/static/js/main.3d4c3915.js.map"
   },
   "entrypoints": [
     "static/css/main.ed4fc031.css",
-    "static/js/main.7434816c.js"
+    "static/js/main.3d4c3915.js"
   ]
 }
