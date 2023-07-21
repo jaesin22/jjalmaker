@@ -17,7 +17,7 @@ type BannerState = {
 };
 
 const initialState: BannerState = {
-  size: 30,
+  size: 60,
   text: "Sample Text",
   color: "#FFFFFF",
   border: "transparent",

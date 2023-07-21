@@ -1,4 +1,5 @@
-import React, { useEffect, useContext, useMemo } from "react";
+import React, { useEffect, useContext, useMemo, useState } from "react";
+import FontFaceObserver from "fontfaceobserver";
 import CanvasContext from "./CanvasContext";
 import "../styles/App.css";
 type PreviewProps = {
@@ -21,6 +22,7 @@ const Preview = ({
 }: PreviewProps) => {
   const canvasRef = useContext(CanvasContext);
   const lineHeight = size * 1.4;
+  const [fontLoaded, setFontLoaded] = useState(false);
 
   const drawCanvas = useMemo(() => {
     return () => {
@@ -84,10 +86,17 @@ const Preview = ({
   ]);
 
   useEffect(() => {
-    if (canvasRef?.current) {
+    const font = new FontFaceObserver(fontFamiliy);
+    font.load().then(() => {
+      setFontLoaded(true);
+    });
+  }, [fontFamiliy]);
+
+  useEffect(() => {
+    if (canvasRef?.current && fontLoaded) {
       drawCanvas();
     }
-  }, [canvasRef, drawCanvas]);
+  }, [canvasRef, drawCanvas, fontLoaded]);
 
   return (
     <div className="flex justify-center mt-3">
