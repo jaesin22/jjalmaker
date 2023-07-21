@@ -43,12 +43,9 @@ const Preview = ({
         ctx.fillStyle = color;
         ctx.textAlign = "center";
         ctx.strokeStyle = border;
-        console.log(ctx.getContextAttributes());
         if (!canvasRef.current) return;
         let canvasCenterX = canvasRef.current.width / 2;
         let canvasCenterY = canvasRef.current.height / 2;
-
-        console.log(canvasRef.current.width, canvas.width);
 
         for (let i = 0; i < lines.length; i++) {
           const line = lines[i];
