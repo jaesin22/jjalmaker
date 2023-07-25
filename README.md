@@ -119,6 +119,7 @@ TailWind CSS를 이용하여 작은 모바일 환경은 물론 태블릿 대형 
 최초에 개발을 했을 때는 App.js에 모든 상태를 몰아넣고 자식 컴포넌트 -> 부모 컴포넌트 -> 자식 컴포넌트의 방법으로 자식 컴포넌트에 상태를 주입했습니다. 그러나 보면 볼수록 이 방법보다 더 좋은 방법이 있을텐데.. 라는 생각이 들었고, react-redux를 통한 전역에서 상태관리를 할 수 있도록 수정했습니다. 밑의 코드는 수정 전의 App.js에서 상태를 관리하는 코드 중 일부입니다.
 
 ```TypeScript
+  // App.tsx
   const [text, setText] = useState("Sample Text");
   const [color, setColor] = useState("#FFFFFF");
   const [selectedFontSize, setSelectedFontSize] = useState(60);
